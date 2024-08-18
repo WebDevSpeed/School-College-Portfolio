@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acme School</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      * {
+        scroll-behavior: smooth;
+      }
+      .active{
+        display: flex;
+      }
+    </style>
+  </head>
+  <body class="bg-blue-50 flex flex-col min-h-[100dvh]">
+    <header
+      class="bg-pink-200 text-gray-800 py-4 px-6 sm:px-8 md:px-10 flex items-center justify-between"
+    >
+      <a class="flex items-center gap-2" href="#">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-6 w-6"
+        >
+          <path d="M14 22v-4a2 2 0 1 0-4 0v4"></path>
+          <path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"></path>
+          <path d="M18 5v17"></path>
+          <path d="m4 6 8-4 8 4"></path>
+          <path d="M6 5v17"></path>
+          <circle cx="12" cy="9" r="2"></circle>
+        </svg>
+        <span class="text-lg font-semibold">Acme School</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-4">
+        <a class="hover:underline" href="#home"> Home </a>
+        <a class="hover:underline" href="#about"> About </a>
+        <a class="hover:underline" href="#academics"> Academics </a>
+        <a class="hover:underline" href="#admissions"> Admissions </a>
+        <a class="hover:underline" href="#news"> News & Events </a>
+        <a class="hover:underline" href="#contact"> Contact </a>
+      </nav>
+      <button id="hamburger" 
+        class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-200 text-gray-800 hover:bg-blue-200/80 h-9 rounded-md px-3 md:hidden"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-5 w-5"
+        >
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+        <span class="sr-only">Open menu</span>
+      </button>
+      
+      <nav id="nav-links"
+       class="absolute hidden flex-col w-full bg-pink-200 top-16 right-0 pb-4 items-center gap-4">
+        <a class="hover:underline" onclick="{change()}" href="#home"> Home </a>
+        <a class="hover:underline" onclick="{change()}" href="#about"> About </a>
+        <a class="hover:underline" onclick="{change()}" href="#academics"> Academics </a>
+        <a class="hover:underline" onclick="{change()}" href="#admissions"> Admissions </a>
+        <a class="hover:underline" onclick="{change()}" href="#news"> News & Events </a>
+        <a class="hover:underline" onclick="{change()}" href="#contact"> Contact </a>
+      </nav>
+
+    </header>
+    <section
+    id="home"
+      class="bg-gradient-to-r from-pink-200 to-gray-800/80 text-gray-800 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28"
+    >
+      <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+          <div class="flex flex-col items-start gap-4 md:gap-6">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+              Welcome to Acme School
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl">
+              Empowering students to reach their full potential.
+            </p>
+            <div class="flex gap-4">
+              <a href="#about">
+                <button
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-pink-200 text-gray-800 hover:bg-pink-200/90 h-10 px-4 py-2"
+                >
+                  Learn More
+                </button>
+              </a>
+
+              <a href="#contact">
+                <button
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-200 text-gray-800 hover:bg-blue-200/80 h-10 px-4 py-2"
+                >
+                  Contact Us
+                </button>
+              </a>
+            </div>
+          </div>
+          <div class="hidden md:block">
+            <img
+              src="./campus.png"
+              width="600"
+              height="400"
+              alt="School Campus"
+              style="aspect-ratio: 600 / 400; object-fit: cover"
+              class="rounded-xl object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="about"
+      class="bg-sky-100 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28"
+    >
+      <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+          <div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+              About Acme School
+            </h2>
+            <p class="text-gray-800 text-lg sm:text-xl mb-4 sm:mb-6">
+              Acme School has been providing quality education for over 50
+              years. Our mission is to empower students to reach their full
+              potential and become responsible, compassionate leaders.
+            </p>
+            <div class="prose">
+              <p>
+                Our dedicated faculty and staff work tirelessly to create a
+                nurturing and inclusive environment where students can thrive
+                academically, socially, and emotionally. We offer a well-rounded
+                curriculum that combines rigorous academics with a wide range of
+                extracurricular activities, ensuring our students have the tools
+                they need to succeed in the 21st century.
+              </p>
+              <p>
+                At Acme School, we believe in the power of community and
+                collaboration. We work closely with parents and the local
+                community to provide our students with the support and resources
+                they need to reach their full potential.
+              </p>
+            </div>
+          </div>
+          <div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+              A Message from the Principal
+            </h2>
+            <div class="flex items-start gap-4">
+              <span
+                class="relative flex shrink-0 overflow-hidden rounded-full w-16 h-16 border"
+              >
+                <img
+                  class="aspect-square h-full w-full"
+                  alt="Principal"
+                  src="./principal.jpg"
+                />
+              </span>
+              <div>
+                <p class="text-lg sm:text-xl font-semibold">
+                  Jennie Kim, Principal
+                </p>
+                <p class="text-gray-800 text-base sm:text-lg">
+                  "At Acme School, we are committed to providing our students
+                  with a transformative educational experience that prepares
+                  them for success in the 21st century."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="academics"
+      class="bg-blue-50 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28"
+    >
+      <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+          <div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+              Academics
+            </h2>
+            <p class="text-gray-800 text-lg sm:text-xl mb-4 sm:mb-6">
+              Acme School offers a comprehensive academic program that
+              challenges and inspires our students.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              <div class="bg-sky-100 rounded-lg p-4 sm:p-6">
+                <h3 class="text-xl font-semibold mb-2">Curriculum</h3>
+                <p class="text-gray-800">
+                  Our curriculum is designed to provide students with a
+                  well-rounded education, covering core subjects as well as
+                  electives and extracurricular activities.
+                </p>
+              </div>
+              <div class="bg-sky-100 rounded-lg p-4 sm:p-6">
+                <h3 class="text-xl font-semibold mb-2">Grades</h3>
+                <p class="text-gray-800">
+                  We offer education from preschool through 12th grade, ensuring
+                  a seamless learning experience for our students.
+                </p>
+              </div>
+              <div class="bg-sky-100 rounded-lg p-4 sm:p-6">
+                <h3 class="text-xl font-semibold mb-2">Extracurriculars</h3>
+                <p class="text-gray-800">
+                  Our students have access to a wide range of extracurricular
+                  activities, including sports, clubs, and community service
+                  opportunities.
+                </p>
+              </div>
+              <div class="bg-sky-100 rounded-lg p-4 sm:p-6">
+                <h3 class="text-xl font-semibold mb-2">Calendar</h3>
+                <p class="text-gray-800">
+                  Our academic calendar includes important dates such as
+                  holidays, breaks, and parent-teacher conferences.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class=" flex justify-center items-center">
+            <img
+              src="./classroom.jpg"
+              width="600"
+              height="400"
+              alt="Classroom"
+              class="rounded-xl object-cover "
+              style="aspect-ratio: 600 / 400; object-fit: cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="admissions"
+      class="bg-sky-100 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28"
+    >
+      <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+          <div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+              Admissions
+            </h2>
+            <p class="text-gray-800 text-lg sm:text-xl mb-4 sm:mb-6">
+              Discover how to join the Acme School community.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              <div class="bg-blue-50 rounded-lg p-4 sm:p-6">
+                <h3 class="text-xl font-semibold mb-2">Application Process</h3>
+                <p class="text-gray-800">
+                  Learn about our admissions requirements and how to apply.
+                </p>
+                <a href="#contact">
+                  <button
+                    class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-pink-200 text-gray-800 hover:bg-pink-200/90 h-9 rounded-md px-3 mt-4"
+                  >
+                    Apply Now
+                  </button>
+                </a>
+              </div>
+              <div class="bg-blue-50 rounded-lg p-4 sm:p-6">
+                <h3 class="text-xl font-semibold mb-2">Tuition & Fees</h3>
+                <p class="text-gray-800">
+                  Explore our tuition rates and available financial aid options.
+                </p>
+                <button
+                  class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-200 text-gray-800 hover:bg-blue-200/80 h-9 rounded-md px-3 mt-4"
+                >
+                  Learn More
+                </button>
+              </div>
+              <div class="bg-blue-50 rounded-lg p-4 sm:p-6">
+                <h3 class="text-xl font-semibold mb-2">Contact Admissions</h3>
+                <p class="text-gray-800">
+                  Get in touch with our admissions team for more information.
+                </p>
+                <a href="#contact">
+                  <button
+                    class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-pink-200 text-gray-800 hover:bg-pink-200/90 h-9 rounded-md px-3 mt-4"
+                  >
+                    Contact Us
+                  </button>
+                </a>
+              </div>
+              <div class="bg-blue-50 rounded-lg p-4 sm:p-6">
+                <h3 class="text-xl font-semibold mb-2">Scholarships</h3>
+                <p class="text-gray-800">
+                  Explore the scholarship opportunities available at Acme
+                  School.
+                </p>
+                <button
+                  class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-200 text-gray-800 hover:bg-blue-200/80 h-9 rounded-md px-3 mt-4"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center items-center">
+            <img
+              src="./admission.png"
+              width="600"
+              height="400"
+              alt="Admissions"
+              class="rounded-xl object-cover"
+              style="aspect-ratio: 600 / 400; object-fit: cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="news"
+      class="bg-blue-50 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28"
+    >
+      <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+          <div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+              News & Events
+            </h2>
+            <p class="text-gray-800 text-lg sm:text-xl mb-4 sm:mb-6">
+              Stay up-to-date with the latest news and happenings at Acme
+              School.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              <div
+                class="rounded-lg border bg-white text-gray-800 shadow-sm"
+                data-v0-t="card"
+              >
+                <div class="p-6">
+                  <img
+                    src="./win.jpg"
+                    width="300"
+                    height="200"
+                    alt="News Article"
+                    class="rounded-t-lg object-cover"
+                    style="aspect-ratio: 300 / 200; object-fit: cover"
+                  />
+                  <div class="p-4 sm:p-6">
+                    <h3 class="text-xl font-semibold mb-2">
+                      Acme School Wins National Award
+                    </h3>
+                    <p class="text-gray-800">
+                      Acme School has been recognized for its excellence in
+                      education, receiving a prestigious national award.
+                    </p>
+                    <a class="text-pink-400 hover:underline" href="#">
+                      Read More
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="rounded-lg border bg-white text-gray-800 shadow-sm"
+                data-v0-t="card"
+              >
+                <div class="p-6">
+                  <img
+                    src="./sciencefair.jpg"
+                    width="300"
+                    height="200"
+                    alt="Event"
+                    style="aspect-ratio: 300 / 200; object-fit: cover"
+                    class="rounded-t-lg object-cover"
+                  />
+                  <div class="p-4 sm:p-6">
+                    <h3 class="text-xl font-semibold mb-2">
+                      Annual Science Fair
+                    </h3>
+                    <p class="text-gray-800">
+                      Join us for our annual science fair, showcasing the
+                      innovative projects of our talented students.
+                    </p>
+                    <a class="text-pink-400 hover:underline" href="#">
+                      Learn More
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center items-center">
+            <img
+              src="./news.jpg"
+              width="600"
+              height="400"
+              alt="News & Events"
+              class="rounded-xl object-cover"
+              style="aspect-ratio: 600 / 400; object-fit: cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      class=" bg-sky-100 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28"
+    >
+      <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+          <div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+              Contact Us
+            </h2>
+            <p class="text-gray-800 text-lg sm:text-xl mb-4 sm:mb-6">
+              Get in touch with us for more information.
+            </p>
+            <form class="grid gap-4 sm:gap-6">
+              <input
+                class="flex h-10 w-full rounded-md border border-gray-300 bg-blue-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                placeholder="Name"
+                type="text"
+              />
+              <input
+                class="flex h-10 w-full rounded-md border border-gray-300 bg-blue-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                placeholder="Email"
+                type="email"
+              />
+              <textarea
+                class="flex min-h-[80px] w-full rounded-md border border-gray-300 bg-blue-50 px-3 py-2 text-sm ring-offset-white placeholder:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                placeholder="Message"
+                rows="5"
+              ></textarea>
+              <button
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-pink-200 text-gray-800 hover:bg-pink-200/90 h-10 px-4 py-2"
+                type="submit"
+              >
+                Submit
+              </button>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-pink-200 text-gray-800 py-6">
+      <div
+        class="container mx-auto flex flex-col md:flex-row justify-between items-center"
+      >
+        <div class="flex items-center gap-2 mb-4 md:mb-0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6"
+          >
+            <path d="M14 22v-4a2 2 0 1 0-4 0v4"></path>
+            <path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"></path>
+            <path d="M18 5v17"></path>
+            <path d="m4 6 8-4 8 4"></path>
+            <path d="M6 5v17"></path>
+            <circle cx="12" cy="9" r="2"></circle>
+          </svg>
+          <span class="text-lg font-semibold">Acme School</span>
+        </div>
+        <div class="mb-4 md:mb-0">
+          <h5 class="font-bold text-lg">Quick Links</h5>
+          <ul class="flex md:flex-col lg:flex-row">
+            <li class="m-2">
+              <a href="#home" class="hover:underline">Home</a>
+            </li>
+            <li class="m-2">
+              <a href="#about" class="hover:underline">About Us</a>
+            </li>
+            <li class="m-2">
+              <a href="#admissions" class="hover:underline">Admissions</a>
+            </li>
+            <li class="m-2">
+              <a href="#news" class="hover:underline">News & Events</a>
+            </li>
+          </ul>
+        </div>
+        <div class="mb-4 md:mb-0">
+          <p>© 2024 Acme School. All rights reserved.</p>
+          <a href="#privacy-policy" class="hover:underline">Privacy Policy</a> |
+          <a href="#terms-of-service" class="hover:underline"
+            >Terms of Service</a
+          >
+        </div>
+        <div>
+          <h5 class="font-bold text-lg">Follow Us</h5>
+          <div class="flex md:flex-col lg:flex-row space-x-4">
+            <a href="https://facebook.com" class="hover:underline">Facebook</a>
+            <a href="https://twitter.com" class="hover:underline">Twitter</a>
+            <a href="https://instagram.com" class="hover:underline"
+              >Instagram</a
+            >
+            <a href="https://linkedin.com" class="hover:underline">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
